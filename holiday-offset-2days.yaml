@@ -12,7 +12,7 @@ blueprint:
     The sensors are normally updated once a day, or when Home Assistant starts.
     The update can be triggered by updating the integration configuration (just hit configure and submit).
   domain: automation
-  source_url: https://github.com/bruxy70/Garbage-Collection/blob/master/blueprints/move_on_holiday.yaml
+  source_url: https://github.com/pcmv-dev/ha-blueprints/blob/main/holiday-offset-2days.yaml
   input:
     garbage_collection_entity:
       name: Garbage Collection Entity
