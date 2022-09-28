@@ -50,12 +50,12 @@ action:
             date: "{{ repeat.item }}"
             offset: >-
               {%- set collection_date = as_datetime(repeat.item) %}
-              {%- set ns = namespace(offset=1, found=false) %}
+              {%- set ns = namespace(offset=2, found=false) %}
               {# Increase offset until we find a date that is not public holiday #}
               {%- for _ in range(7) if not ns.found %}
                 {%- set d = ( collection_date + timedelta( days=ns.offset) ) | as_timestamp | timestamp_custom("%Y-%m-%d") %}
                 {%- if d in state_attr(holiday_entity,'holidays') %}
-                  {%- set ns.offset = ns.offset + 2 %}
+                  {%- set ns.offset = ns.offset + 1 %}
                 {% else %}
                   {%- set ns.found = true %}
                 {%- endif %}
